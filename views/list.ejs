@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>To-Do List</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        
+        <div class="tdl-holder">
+            <h2><%= kindOfDay %></h2>
+
+            <form name="form" action="/delete" method="POST">
+            <div class="tdl-content">
+                <ul>
+                    <% newItems.forEach(function(item){ %>
+
+                    <li>
+                        <label>
+                            <input type="checkbox" class="des" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
+                            <i></i>
+                            <span><%= item.name %></span>
+                        </label>
+                    </li>
+
+                    <% }); %>
+                </ul>
+            </div>
+            </form>
+            <div>
+                <form action="/" method="POST">
+                    <input type="text" name="newItem" class="tdl-new" placeholder="NewItem">
+                    <button type="submit" name="button" class="btn">+</button>
+                    </form>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
